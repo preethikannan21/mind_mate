@@ -1,0 +1,24 @@
+<div class="dashboard">
+    <h2>Dashboard - Your Mood History</h2>
+
+    <div>
+        <button ng-click="filterMood('All')">All</button>
+        <button ng-click="filterMood('Happy')">Happy</button>
+        <button ng-click="filterMood('Sad')">Sad</button>
+        <button ng-click="filterMood('Angry')">Angry</button>
+        <button ng-click="filterMood('Excited')">Excited</button>
+        <button ng-click="filterMood('Anxious')">Anxious</button>
+        <button ng-click="clearHistory()">Clear History</button>
+    </div>
+
+    <div class="cards">
+        <div class="card" ng-repeat="entry in filteredHistory" ng-style="{'background-color': getColor(entry.emotion)}">
+            <h3>{{ entry.emotion }}</h3>
+            <p>{{ entry.date }}</p>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="moodChart"></canvas>
+    </div>
+</div>
