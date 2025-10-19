@@ -1,21 +1,10 @@
 <div class="tracker">
     <h2>How are you feeling today?</h2>
-
     <div class="cards">
-        <div class="card" 
-             ng-repeat="emotion in emotions" 
-             ng-click="chooseEmotion(emotion)" 
-             ng-style="{'background-color': emotion.color}">
-            <img ng-src="{{emotion.image}}" alt="{{emotion.name}}" width="80">
+        <div class="card" ng-repeat="emotion in emotions" ng-style="{'background-color': emotion.color}" ng-click="chooseEmotion(emotion)">
+            <img ng-src="{{emotion.image}}" alt="{{emotion.name}}">
             <h3>{{emotion.name}}</h3>
-            <p>{{selectedEmotion.name === emotion.name ? emotion.suggestion : ''}}</p>
+            <p ng-if="selectedEmotion.name === emotion.name">{{emotion.suggestion}}</p>
         </div>
     </div>
-
-    <h3>Previous Selections:</h3>
-    <ul>
-        <li ng-repeat="entry in history">
-            {{ entry.date }} - {{ entry.emotion }}
-        </li>
-    </ul>
 </div>
